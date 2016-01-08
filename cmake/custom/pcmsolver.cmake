@@ -2,6 +2,9 @@ option(ENABLE_LOGGER "Enable logger" OFF)
 option(ENABLE_TIMER "Enable timer" ON)
 option(BUILD_STANDALONE "Enable build of standalone executables" ON)
 option(ENABLE_FORTRAN_API "Builds optional Fortran90 API" OFF)
+option(STATIC_ONLY "Compile only the static library" OFF)
+
+set(PCMSolver_LIB_SOVERSION 1)
 
 # Add definitions
 if(ENABLE_TIMER)

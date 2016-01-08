@@ -15,7 +15,8 @@ add_Catch_test(bi_operators_collocation "bi_operators;bi_operators_collocation")
 
 # This executable updates the .npy files containing the reference values
 if(BUILD_STANDALONE)
+  link_directories(${PROJECT_BINARY_DIR}/lib)
   list(APPEND external_libraries ${ZLIB_LIBRARIES})
   add_executable(update_reference_files update_reference_files.cpp)
-  target_link_libraries(update_reference_files pcm ${external_libraries})
+  target_link_libraries(update_reference_files pcm ${external_libraries} ${CMAKE_Fortran_IMPLICIT_LINK_LIBRARIES})
 endif()
