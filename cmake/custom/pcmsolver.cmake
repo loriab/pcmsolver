@@ -3,8 +3,6 @@ option(ENABLE_TIMER "Enable timer" ON)
 option(BUILD_STANDALONE "Enable build of standalone executables" ON)
 option(ENABLE_FORTRAN_API "Builds optional Fortran90 API" OFF)
 
-set(PCMSolver_LIB_SOVERSION 1)
-
 # Add definitions
 if(ENABLE_TIMER)
   add_definitions(-DENABLE_TIMER)

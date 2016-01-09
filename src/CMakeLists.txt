@@ -28,7 +28,7 @@ if(NOT STATIC_LIBRARY_ONLY)
   set_target_properties(pcm-base PROPERTIES POSITION_INDEPENDENT_CODE 1)
   add_library(pcm-shared SHARED $<TARGET_OBJECTS:pcm-base>)
   target_link_libraries(pcm-shared ${SUBMODULES_INSTALL_PREFIX}/lib/libgetkw.a)
-  set_target_properties(pcm-shared PROPERTIES SOVERSION ${PCMSolver_LIB_SOVERSION} CLEAN_DIRECT_OUTPUT 1 OUTPUT_NAME "pcm")
+  set_target_properties(pcm-shared PROPERTIES SOVERSION ${PROJECT_VERSION_MAJOR} CLEAN_DIRECT_OUTPUT 1 OUTPUT_NAME "pcm")
   install(TARGETS pcm-shared DESTINATION lib)
 endif()
 

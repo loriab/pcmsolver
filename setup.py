@@ -28,13 +28,13 @@ Options:
   --exdiag                               Enable C++ extended diagnostics flags [default: False].
   --ccache=<USE_CCACHE>                  Toggle use of ccache <ON/OFF> [default: ON].
   --coverage                             Enable code coverage [default: False].
-  --static                               Create only the static library [default: False].
   --int64                                Enable 64bit integers [default: False].
   --omp                                  Enable OpenMP parallelization [default: False].
   --python=<PYTHON_INTERPRETER>          The Python interpreter (development version) to use. [default: ''].
   --boost-headers=<BOOST_INCLUDEDIR>     Include directories for Boost [default: ''].
   --boost-libraries=<BOOST_LIBRARYDIR>   Library directories for Boost [default: ''].
   --build-boost=<FORCE_CUSTOM_BOOST>     Deactivate Boost detection and build on-the-fly <ON/OFF> [default: OFF].
+  --static                               Create only the static library [default: False].
   --type=<TYPE>                          Set the CMake build type (debug, release, or relwithdeb) [default: release].
   --generator=<STRING>                   Set the CMake build system generator [default: Unix Makefiles].
   --show                                 Show CMake command and exit.
@@ -61,7 +61,6 @@ def gen_cmake_command(options, arguments):
     command.append('-DENABLE_EXTENDED_DIAGNOSTICS=%s' % arguments['--exdiag'])
     command.append('-DUSE_CCACHE="{0}"'.format(arguments['--ccache']))
     command.append('-DENABLE_CODE_COVERAGE=%s' % arguments['--coverage'])
-    command.append('-DSTATIC_LIBRARY_ONLY=%s' % arguments['--static'])
     command.append('-DENABLE_64BIT_INTEGERS=%s' % arguments['--int64'])
     command.append('-DENABLE_OPENMP=%s' % arguments['--omp'])
     command.append('-DPYTHON_INTERPRETER="%s"' % arguments['--python'])
@@ -70,6 +69,7 @@ def gen_cmake_command(options, arguments):
     command.append('-DFORCE_CUSTOM_BOOST="{0}"'.format(arguments['--build-boost']))
     command.append('-DBOOST_MINIMUM_REQUIRED="1.54.0"')
     command.append('-DBOOST_COMPONENTS_REQUIRED="''"')
+    command.append('-DSTATIC_LIBRARY_ONLY=%s' % arguments['--static'])
     command.append('-DCMAKE_BUILD_TYPE=%s' % arguments['--type'])
     command.append('-G "%s"' % arguments['--generator'])
     if arguments['--cmake-options'] != "''":
