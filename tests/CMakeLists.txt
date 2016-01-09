@@ -21,7 +21,7 @@ if(STATIC_LIBRARY_ONLY)
 else()
   add_dependencies(unit_tests pcm-shared)
 endif()
-target_link_libraries(unit_tests pcm getkw ${ZLIB_LIBRARIES} ${CMAKE_Fortran_IMPLICIT_LINK_LIBRARIES})
+target_link_libraries(unit_tests pcm ${CMAKE_Fortran_IMPLICIT_LINK_LIBRARIES})
 
 add_subdirectory(C_host)
 if(ENABLE_FORTRAN_API)
