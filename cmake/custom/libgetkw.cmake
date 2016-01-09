@@ -26,4 +26,9 @@ endif()
 
 link_directories(${SUBMODULES_INSTALL_PREFIX}/lib)
 
-set(GETKW_PYTHON_DIR ${SUBMODULES_INSTALL_PREFIX}/share/libgetkw)
+file(COPY ${PROJECT_SOURCE_DIR}/external/libgetkw/Python/getkw.py
+          ${PROJECT_SOURCE_DIR}/external/libgetkw/Python/pyparsing.py
+     DESTINATION ${PROJECT_BINARY_DIR}/bin)
+install(FILES ${PROJECT_BINARY_DIR}/bin/getkw.py
+              ${PROJECT_BINARY_DIR}/bin/pyparsing.py
+        DESTINATION bin)
