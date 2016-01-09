@@ -33,7 +33,6 @@ if(NOT STATIC_LIBRARY_ONLY)
 endif()
 
 add_library(pcm-static STATIC $<TARGET_OBJECTS:pcm-base>)
-target_link_libraries(pcm-static ${SUBMODULES_INSTALL_PREFIX}/lib/libgetkw.a ${ZLIB_LIBRARIES})
 set_target_properties(pcm-static PROPERTIES CLEAN_DIRECT_OUTPUT 1 OUTPUT_NAME "pcm")
 install(TARGETS pcm-static ARCHIVE DESTINATION lib)
 
