@@ -3,6 +3,7 @@ git:
   submodules: false
 before_install:
     - sudo apt-get update -y
+    - sudo apt-get install software-properties-common python-software-properties
     - sudo add-apt-repository ppa:george-edison55/precise-backports
     - sudo apt-get update -y
     - sudo apt-get install gcc g++ gfortran make cmake cmake-data zlib1g-dev python-dateutil python-pyparsing python-numpy python-matplotlib python-pip python-setuptools python-dev -y
