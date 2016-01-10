@@ -21,7 +21,6 @@ if(STATIC_LIBRARY_ONLY)
 else()
   target_link_libraries(unit_tests pcm-shared)
 endif()
-target_link_libraries(unit_tests ${CMAKE_Fortran_IMPLICIT_LINK_LIBRARIES})
 
 add_subdirectory(C_host)
 if(ENABLE_FORTRAN_API)
