@@ -262,8 +262,11 @@ install:
 before_script:
 - cd ${TRAVIS_BUILD_DIR}
 - export CXX=${CXX_COMPILER}
+- ${CXX_COMPILER} --version
 - export CC=${C_COMPILER}
+- ${C_COMPILER} --version
 - export FC=${Fortran_COMPILER}
+- ${Fortran_COMPILER} --version
 - |
   if [[ "${COVERAGE}" = true ]]; then
     python setup.py --cxx=${CXX_COMPILER} --cc=${C_COMPILER} --fc=${Fortran_COMPILER} --type=${BUILD_TYPE} --cmake-options='-Hprojects/CMake -DENABLE_FORTRAN_API=ON' --coverage
