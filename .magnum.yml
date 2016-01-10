@@ -3,7 +3,9 @@ git:
   submodules: false
 before_install:
     - sudo apt-get update -y
-    - sudo apt-get install gcc g++ gfortran make cmake zlib1g-dev python-dateutil python-pyparsing python-numpy python-matplotlib python-pip python-setuptools python-dev -y
+    - sudo add-apt-repository ppa:george-edison55/precise-backports
+    - sudo apt-get update -y
+    - sudo apt-get install gcc g++ gfortran make cmake cmake-data zlib1g-dev python-dateutil python-pyparsing python-numpy python-matplotlib python-pip python-setuptools python-dev -y
     - cmake --version
     - gcc --version
     - g++ --version
@@ -14,10 +16,3 @@ script:
   - cd build
   - VERBOSE=1 make
   - ctest -V
-notifications:
-  recipients:
-    - roberto.d.remigio@uit.no
-    - luca.frediani@uit.no
-  email:
-    on_success: change
-    on_failure: always
