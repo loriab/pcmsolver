@@ -1,9 +1,9 @@
 link_directories(${PROJECT_BINARY_DIR}/lib)
 add_executable(C_host C_host.c)
 if(STATIC_LIBRARY_ONLY)
-  target_link_libraries(C_host pcm getkw ${ZLIB_LIBRARIES})
+  target_link_libraries(C_host pcm-static getkw ${ZLIB_LIBRARIES})
 else()
-  target_link_libraries(C_host pcm)
+  target_link_libraries(C_host pcm-shared)
 endif()
 target_link_libraries(C_host ${CMAKE_CXX_IMPLICIT_LINK_LIBRARIES}
                              ${CMAKE_Fortran_IMPLICIT_LINK_LIBRARIES})
