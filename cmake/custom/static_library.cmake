@@ -1,7 +1,7 @@
 #.rst:
 #
 # Enables creation of static library.
-# If also the shared library is created, make it as static as possible.
+# If the shared library is created, make it as static as possible.
 #
 # Variables modified (provided the corresponding language is enabled)::
 #
@@ -15,8 +15,9 @@
 #   define: '-DSTATIC_LIBRARY_ONLY=%s' % arguments['--static']
 
 option(STATIC_LIBRARY_ONLY "Create the static library only" OFF)
+option(ENABLE_GENERIC "Enable mostly static linking in shared library" OFF)
 
-if(NOT STATIC_LIBRARY_ONLY)
+if(ENABLE_GENERIC)
     if(DEFINED CMAKE_Fortran_COMPILER_ID)
         if(CMAKE_Fortran_COMPILER_ID MATCHES GNU)
             set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -static-libgfortran")
