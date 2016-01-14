@@ -27,6 +27,6 @@ addons: &gcc5
       version: 1.0.4
       description: "An API for the Polarizable Continuum Model"
     notification_email: roberto.d.remigio@uit.no
-    build_command_prepend: "python setup.py --cxx=g++-5 --cc=gcc-5 --fc=gfortran-5 --type=debug --cmake-options=\"-DENABLE_TESTS=OFF -DENABLE_FORTRAN_API=ON\"; cd build"
+    build_command_prepend: "python setup.py --cxx=g++-5 --cc=gcc-5 --fc=gfortran-5 --type=debug --cmake-options='-DENABLE_TESTS=OFF -DENABLE_FORTRAN_API=ON'; cd build"
     build_command: "make"
     branch_pattern: coverity_scan
